@@ -1,5 +1,29 @@
-class Casino {
-    // Write code here
+class Casino { //step 1 to create a casino class    
+   constructor (name, fakeCoin) { //constructor added 
+    this.name = name; 
+    this.timesPlayed = 0; //"this" keyword is used to reference fields added by step 3 with value at 0 
+    this.winnings = 0; 
+    this.fakeCoin = fakeCoin; 
+   }
+
+   playGame (betAmount) { //method created that checks if Math.random () is <= 0.5 
+    this.timesPlayed += 1; 
+    if (Math.random () > 0.5 && this.fakeCoin == false) { //if false, console.log that the player won
+        console.log("You won " + betAmount *
+        (this.timesPlayed) + "dollars from "
+        + this.name + "!");
+        this.winnings += this.timesPlayed * betAmount;
+        console.log("Current Winnings: " + this.winnings);
+    } else {
+        console.log(this.name + " wins!");
+        this.timesPlayed = 0; 
+        this.winnings = 0;
+    }
+   }
+
+   rolldice(sides) {
+    console.log(Math.floor(Math.random() * sides) + 1);
+   }
 };
 
 // TESTS
